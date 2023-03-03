@@ -1,12 +1,15 @@
-const loadApps = async() =>{
+const loadApps = async(dataLimit) =>{
     const url = `https://openapi.programming-hero.com/api/ai/tools`
     const res = await fetch(url);
     const data = await res.json(); 
     displayApps(data.data.tools);
 }
-const displayApps = (apps) =>{
+const displayApps = (apps,dataLimit) =>{
     const appsContainer = document.getElementById('apps-container');
-    apps = apps.slice(0,6);
+    if(dataLimit = 12 && apps.length > 6){
+        apps = apps.slice(0,6);
+    }
+    
     apps.forEach(app => {
         const appDiv = document.createElement('div');
         appDiv.classList.add('col');
@@ -40,4 +43,11 @@ const displayApps = (apps) =>{
         
     });
 }
+
+//show all
+const show = document.getElementById('btn-show-all')
+show.addEventListener('click',function(){
+    loadApps(12);
+    show.classList.add('d-none');
+})
 loadApps()
