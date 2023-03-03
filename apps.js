@@ -6,6 +6,7 @@ const loadApps = async() =>{
 }
 const displayApps = (apps) =>{
     const appsContainer = document.getElementById('apps-container');
+    apps = apps.slice(0,6);
     apps.forEach(app => {
         const appDiv = document.createElement('div');
         appDiv.classList.add('col');
@@ -21,8 +22,15 @@ const displayApps = (apps) =>{
               <li>${app.features[2]}</li>
             </ol>
             <h5 class="card-title mt-4">${app.name}</h5>
+            <div class="d-flex justify-content-between">
+            <div>
             <i class="fa-solid fa-calendar-days"></i>
             ${app.published_in}
+            </div>
+            <div>
+            <button class="text-end btn btn-danger"><i class="fa-solid fa-arrow-right"></i></button>
+            </div> 
+            </div>   
           </div>
         </div>
       </div>
