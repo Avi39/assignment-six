@@ -35,7 +35,7 @@ const displayApps = (apps,dataLimit) =>{
             ${app.published_in}
             </div>
             <div>
-            <button class="text-end btn btn-danger"><i class="fa-solid fa-arrow-right"></i></button>
+            <button onclick="loadAppDetails('${app.id}')" class="text-end btn btn-danger"data-bs-toggle="modal"data-bs-target="#exampleModal"><i class="fa-solid fa-arrow-right"></i></button>
             </div> 
             </div>   
           </div>
@@ -64,5 +64,38 @@ const toggleSpinner = load =>{
     else{
         spinner.classList.add ('d-none')
     }
+}
+//loadAppDetails
+const loadAppDetails = async id =>{
+  const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  displayAppDetails(data.data);
+}
+//display app details
+const displayAppDetails = details =>{
+  const appDetails = document.getElementById('detailsBody');
+  appDetails.innerHTML =`
+     <p>${details.description}</p>
+     <div class="d-flex justify-content-between">
+     <div class="text-success">${details.pricing[0].price}<br>${details.pricing[0].plan}</div>
+     <div class="text-warning">${details.pricing[1].price}<br>${details.pricing[1].plan}</div>
+     <div class="text-danger">${details.pricing[2].price}<br>${details.pricing[2].plan}</div>
+     </div>
+
+     <div class="flex">
+       <div>
+         <h3>Features</h3>
+           <li>1.${details.features[1].feature_name}</li>
+           <li>2.${details.features[2].feature_name}</li>
+           <li>3.${details.features[3].feature_name}</li>
+       <div>
+          <h3>Integrations</h3>
+          <li>${details.integrations[0]}</li>
+          <li>${details.integrations[1]}</li>
+          <li>${details.integrations[2]}</li>
+       </div>
+     <div>
+  `
 }
 const beforeAll = loadApps(6)
