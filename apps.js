@@ -83,19 +83,30 @@ const displayAppDetails = details =>{
      <div class="text-danger">${details.pricing[2].price}<br>${details.pricing[2].plan}</div>
      </div>
 
-     <div class="flex">
+     <div class="d-flex gap-4 mt-4">
        <div>
-         <h3>Features</h3>
-           <li>1.${details.features[1].feature_name}</li>
-           <li>2.${details.features[2].feature_name}</li>
-           <li>3.${details.features[3].feature_name}</li>
-       <div>
-          <h3>Integrations</h3>
-          <li>${details.integrations[0]}</li>
-          <li>${details.integrations[1]}</li>
-          <li>${details.integrations[2]}</li>
+         <h3 >Features</h3>
+           <li class="text-center">${details.features[1].feature_name}</li>
+           <li class="text-center">${details.features[2].feature_name}</li>
+           <li class="text-center">${details.features[3].feature_name}</li>
        </div>
-     <div>
+        <div>
+          <h3>Integrations</h3>
+          <li class="text-center">${details.integrations[0]}</li>
+          <li class="text-center">${details.integrations[1]}</li>
+          <li class="text-center">${details.integrations[2]}</li>
+       </div>
+      </div>
+      
+      <div class="mt-4">
+        <div>
+        <img src="${details.image_link[0]}" class="card-img-top" alt="...">
+        <h3 class="mt-4">${details.input_output_examples[0].input}</h3>
+        <p>${details.input_output_examples[0].output}</p>
+        </div>
+      </div>
+      
+     
   `
 }
 const beforeAll = loadApps(6)
