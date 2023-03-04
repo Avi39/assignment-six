@@ -101,6 +101,7 @@ const displayAppDetails = details =>{
       <div class="mt-4">
         <div>
         <img src="${details.image_link[0]}" class="card-img-top" alt="...">
+        <p class="first-txt">${details.accuracy.score} accuracy</p>
         <h3 class="mt-4">${details.input_output_examples[0].input}</h3>
         <p>${details.input_output_examples[0].output}</p>
         </div>
