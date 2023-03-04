@@ -81,7 +81,7 @@ const displayAppDetails = details =>{
      <div class="d-flex justify-content-between">
      <div class="text-success">${details.pricing[0].price?details.pricing[0].price:'free of cost'}<br>${details.pricing[0].plan?details.pricing[0].plan:'/basic'}</div>
      <div class="text-warning">${details.pricing[1].price?details.pricing[1].price:'free of cost'}<br>${details.pricing[1].plan?details.pricing[1].plan:'/pro'}</div>
-     <div class="text-danger">${details.pricing[2].price?details.pricing[2].price:'free of cost'}<br>${details.pricing[2].plan?details.pricing[2].plan:'/enterprise'}</div>
+     <div class="text-danger">${details.pricing[2].price?details.pricing[2].price:'free of cost'}<br>${details.pricing[2].plan?details.pricing[2].plan:'/enterprises'}</div>
      </div>
 
      <div class="d-flex gap-4 mt-4">
