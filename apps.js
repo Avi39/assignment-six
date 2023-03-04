@@ -93,34 +93,35 @@ const displayAppDetails = details =>{
        </div>
         <div>
           <h3>Integrations</h3>
-          <li class="text-center">${details.integrations[0]}</li>
+            <li class="text-center">${details.integrations[0]}</li>
           <li class="text-center">${details.integrations[1]}</li>
           <li class="text-center">${details.integrations[2]}</li>
+          
        </div>
       </div>
       
       <div class="mt-4">
         <div>
         <img src="${details.image_link[0]}" class="card-img-top" alt="...">
-          <p id="" class="first-txt">${details.accuracy.score} accuracy</p>
+          <p id="" class="first-txt ">${details.accuracy.score} accuracy</p>
         <h3 class="mt-4">${details.input_output_examples[0].input}</h3>
         <p>${details.input_output_examples[0].output}</p>
-        </div>
+     
       </div>    
   `
 }
-document.getElementById('sort-date').addEventListener('click',function(){
-  dateData(dates);
-})
-function dateData(dates){
-  dates.forEach(date=>{
-    const arr =[] ;
-    if(arr>dates.published_in) {
-       arr = dates.published_in
-       displayApps(dates);
-    }
-  })
+// document.getElementById('sort-date').addEventListener('click',function(){
+//   dateData(dates);
+// })
+// function dateData(dates){
+//   dates.forEach(date=>{
+//     const arr =[] ;
+//     if(arr>dates.published_in) {
+//        arr = dates.published_in
+//        displayApps();
+//     }
+// //   })
   
 
-}
+// }
 const beforeAll = loadApps(6)
