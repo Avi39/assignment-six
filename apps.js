@@ -79,9 +79,9 @@ const displayAppDetails = details =>{
   appDetails.innerHTML =`
      <p>${details.description}</p>
      <div class="d-flex justify-content-between">
-     <div class="text-success">${details.pricing[0].price}<br>${details.pricing[0].plan}</div>
-     <div class="text-warning">${details.pricing[1].price}<br>${details.pricing[1].plan}</div>
-     <div class="text-danger">${details.pricing[2].price}<br>${details.pricing[2].plan}</div>
+     <div class="text-success">${details.pricing[0].price?details.pricing[0].price:'free of cost'}<br>${details.pricing[0].plan?details.pricing[0].plan:'/basic'}</div>
+     <div class="text-warning">${details.pricing[1].price?details.pricing[1].price:'free of cost'}<br>${details.pricing[1].plan?details.pricing[1].plan:'/pro'}</div>
+     <div class="text-danger">${details.pricing[2].price?details.pricing[2].price:'free of cost'}<br>${details.pricing[2].plan?details.pricing[2].plan:'/enterprise'}</div>
      </div>
 
      <div class="d-flex gap-4 mt-4">
@@ -93,20 +93,19 @@ const displayAppDetails = details =>{
        </div>
         <div>
           <h3>Integrations</h3>
-            <li class="text-center">${details.integrations[0]}</li>
-          <li class="text-center">${details.integrations[1]}</li>
-          <li class="text-center">${details.integrations[2]}</li>
+            <li class="text-center">${details.integrations[0]?details.integrations[0]:'no data found'}</li>
+          <li class="text-center">${details.integrations[1]?details.integrations[1]:'no data found'}</li>
+          <li class="text-center">${details.integrations[2]?details.integrations[2]:'no data found'}</li>
           
        </div>
       </div>
       
       <div class="mt-4">
         <div>
-        <img src="${details.image_link[0]}" class="card-img-top" alt="...">
+        <img src="${details.image_link[0]?details.image_link[0]:'no data'}" class="card-img-top" alt="...">
           <p id="" class="first-txt ">${details.accuracy.score} accuracy</p>
         <h3 class="mt-4">${details.input_output_examples[0].input}</h3>
-        <p>${details.input_output_examples[0].output}</p>
-     
+        <p>${details.input_output_examples[0].output?details.input_output_examples[0].output:'no not yet! take a break'}</p>
       </div>    
   `
 }
